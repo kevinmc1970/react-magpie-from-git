@@ -1,12 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
+// N.B. dont need braces for own components - because they are the default component in that file
+import App from './App'
+// this is just for testing redux from browser console - see file for info
+// import index from './js/index';
+// converting this app in a redux app by using Provider HOC
+import { Provider } from 'react-redux';
+import store from './js/store/index'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// wrapping App in a Router because it only takes 1 argument and think can then just use Switch/Route anywhere in app
+render((
+  <BrowserRouter>
+  <Provider store={store}>
+    <App />
+    </Provider>
+  </BrowserRouter>
+), document.getElementById('root'))
