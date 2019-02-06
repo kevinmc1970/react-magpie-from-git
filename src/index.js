@@ -5,11 +5,12 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 // this is just for testing redux from browser console - see file for info
 // import index from './js/index';
-// converting this app in a redux app by using Provider HOC
+// converting this app into a redux app by using Provider HOC
 import { Provider } from 'react-redux';
 import store from './js/store/index'
 
 // wrapping App in a Router because it only takes 1 argument and think can then just use Switch/Route anywhere in app
+// also wraps the Provider hoc of the redux store
 render((
   <BrowserRouter>
   <Provider store={store}>
